@@ -4,7 +4,7 @@ local s,id=GetID()
 function s.initial_effect(c)
 	c:EnableReviveLimit()
 	--Xyz Summon procedure
-	Xyz.AddProcedure(c,nil,3,2,ovfilter,Stringid(id,2),2,s.xyzop)
+	Xyz.AddProcedure(c,nil,3,2,ovfilter)
 	--Return 1 monster on the field to the hand
 	local e1=Effect.CreateEffect(c)
 	e1:SetDescription(aux.Stringid(id,0))
