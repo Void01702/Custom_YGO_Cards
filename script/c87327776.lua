@@ -4,7 +4,7 @@ local s,id=GetID()
 function s.initial_effect(c)
 	c:EnableReviveLimit()
 	--Xyz Summon procedure
-	Xyz.AddProcedure(c,nil,3,2,ovfilter)
+	Xyz.AddProcedure(c,nil,3,2,ovfilter,Stringid(id,2),2,s.xyzop)
 	--Return 1 monster on the field to the hand
 	local e1=Effect.CreateEffect(c)
 	e1:SetDescription(aux.Stringid(id,0))
@@ -37,6 +37,11 @@ function s.ovfilter(c,tp,xyzc)
 end
 function s.descon(e,tp,eg,ep,ev,re,r,rp)
 	return e:GetHandler():IsReincarnationSummoned()
+end
+function s.xyzop(e,tp,chk)
+	if chk==0 then return true end
+	e:GetHandler():RegisterFlagEffect(id,RESET_EVENT+RESETS_STANDARD-RESET_TOFIELD+RESET_PHASE+PHASE_END,0,1)
+	return true
 end
 function s.spfilter(c,e,tp)
 	return c:IsSetCard(SET_SALAMANGREAT) and c:IsCanBeSpecialSummoned(e,0,tp,false,false,POS_FACEUP_DEFENSE)
