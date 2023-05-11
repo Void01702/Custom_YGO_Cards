@@ -34,7 +34,7 @@ s.listed_series={SET_SALAMANGREAT}
 function s.ovfilter(c,tp,xyzc)
 	local rk=c:GetRank()
 	return c:IsFaceup() and c:IsAttribute(ATTRIBUTE_FIRE,xyzc,SUMMON_TYPE_XYZ,tp)
-	       and c:IsType(TYPE_XYZ,xyzc,SUMMON_TYPE_XYZ,tp) and (rk==3) and Duel.IsExistingMatchingCard(aux.FaceupFilter(Card.IsCode,01295111),tp,LOCATION_ONFIELD,0,1,nil)
+	       and c:IsType(TYPE_XYZ,xyzc,SUMMON_TYPE_XYZ,tp) and (rk==3) and Duel.IsExistingMatchingCard(aux.FaceupFilter(Card.IsCode,CARD_SALAMANGREAT_SANCTUARY),tp,LOCATION_ONFIELD,0,1,nil)
 end
 function s.descon(e,tp,eg,ep,ev,re,r,rp)
 	return e:GetHandler():IsReincarnationSummoned()
